@@ -1,6 +1,8 @@
 from eve import Eve
 from eve.auth import BasicAuth
 from pymongo.collection import Collection
+from cerberus import Validator
+from flask import Flask, request, jsonify
 
 app = None
 
@@ -15,6 +17,11 @@ class Autenticacao(BasicAuth):
         return res is not None
 
 
-app = Eve(__name__)
-# , auth=Autenticacao)
+app = Eve(__name__, auth=Autenticacao)
+
+@app.route('/conta/adicionarSaldo', methods=['POST'])
+def addValue():
+    print(request.data)
+    return jsonify({"message": "success"})
+
 application = app
