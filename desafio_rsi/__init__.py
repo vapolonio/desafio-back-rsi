@@ -2,7 +2,7 @@ from eve import Eve
 from eve.auth import BasicAuth
 from pymongo.collection import Collection
 from cerberus import Validator
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, request
 from .auth import Autenticacao, criptografrar_senha, esconder_senhas
 
 app = Eve(__name__, auth=Autenticacao)
@@ -16,11 +16,15 @@ app = Eve(__name__, auth=Autenticacao)
 @app.route('/conta/adicionarSaldo', methods=['POST'])
 def addValue():
     print(request.data)
+    conta = request.json['conta']
+    valor = request.json['valor']
+    colecao_conta_origem: Collection = app.data.driver.db['conta']
+    colecao_conta_origem.update_one({'id': conta}, {'$inc': {'saldo': valor}})
     return jsonify({"message": "success"})
 
 
 @app.route('/transferir', methods=['POST'])
-def transferValue(request):
+def transferValue():
     accOrigin = request.json['accOrigin']
     accDest = request.json['accDest']
     value = request.json['value']
@@ -48,6 +52,7 @@ def transferValue(request):
             }},
             upsert=False)
         return jsonify({"message": "success"})
+    return jsonify({"message": "erro"})
 
 
 application = app
