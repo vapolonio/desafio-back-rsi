@@ -3,9 +3,12 @@ from eve.auth import BasicAuth
 from pymongo.collection import Collection
 from cerberus import Validator
 from flask import Flask, request, jsonify
+from .auth import Autenticacao, criptografrar_senha
 
-app = None
+app = Eve(__name__, auth=Autenticacao)
 
+# pylint: disable=no-member
+app.on_insert_clientes += criptografrar_senha
 
 class Autenticacao(BasicAuth):
     def check_auth(self, username, password, allowed_roles, resource, method):
