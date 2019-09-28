@@ -27,4 +27,29 @@ def addValue():
     print(request.data)
     return jsonify({"message": "success"})
 
+@app.route('/transferir', methods=['POST'])
+def transferValue(accOrigin, accDest, value):
+    colecao_conta_origem: Collection = app.data.driver.db['conta']
+    contaOrigem = colecao_conta_origem.find_one({
+            'id': accOrigin,
+    })
+    colecao_conta_destino: Collection = app.data.driver.db['conta']
+    contaDestino = colecao_conta_destino.find_one({
+            'id': accDest,
+    })
+    if contaOrigem is not None and contaDestino is not None value is not None:
+        if contaOrigem["saldo"] < value:
+           return jsonify({"message": "Saldo insuficiente"})
+        colecao_conta_origem.update_one(
+            {"_id": contaOrigem['_id']},
+            {"$set": {
+                'saldo': contaOrigem['saldo'] - value
+        }}, upsert=False)
+        colecao_conta_destino.update_one(
+            {"_id": accDest['_id']},
+            {"$set": {
+            'saldo': contaOrigem['saldo'] + value
+        }}, upsert=False)
+        return jsonify({"message": "success"})
+
 application = app
