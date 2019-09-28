@@ -15,7 +15,7 @@ cliente = {
         # TODO regex
     },
     "dataNascimento": {
-        "type": "date",
+        "type": "datetime",
         "required": True
     },
     "email": {

@@ -5,7 +5,8 @@ from os import environ
 DOMAIN = {
     'clientes': {
         'item_title': 'cliente', 
-        'schema': cliente
+        'schema': cliente,
+        'authentication': None
     },
     'conta': {
         'item_title': 'conta', 
@@ -16,7 +17,7 @@ DOMAIN = {
 MONGO_DBNAME = 'bytecycle'
 MONGO_URI = environ.get('MONGODB_URI', 'mongodb://localhost')
 
-DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
+DATE_FORMAT = '%Y-%m-%d'
 HATEOAS=False
 OPTIMIZE_PAGINATION_FOR_SPEED=True
 RESOURCE_METHODS = ['GET', 'POST', 'DELETE']

@@ -1,19 +1,21 @@
 conta = {
-    'nome': {
+    'id': {
         'type': 'string',
-        'minlength': 10,
+        'minlength': 1,
         'required': True,
+        'unique': True
     },
-    'valor': {
+    'saldo': {
         'type': 'float',
     },
     'cpf': {
-        'type': 'objectId',
+        'type': 'string',
         'data_relation': {
             'resource': 'clientes',
             'field': 'cpf',
             'embeddable': False
         },
+        'unique': True,
         'required': True,
     }
 }
