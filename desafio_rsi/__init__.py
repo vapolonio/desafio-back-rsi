@@ -15,5 +15,6 @@ class Autenticacao(BasicAuth):
         return res is not None
 
 
-app = Eve(__name__, auth=Autenticacao)
+app = Eve(__name__)
+# , auth=Autenticacao)
 application = app

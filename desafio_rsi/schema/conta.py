@@ -11,7 +11,7 @@ conta = {
     'cpf': {
         'type': 'string',
         'data_relation': {
-            'resource': 'clientes',
+            'resource': 'usuario',
             'field': 'cpf',
             'embeddable': False
         },

@@ -1,4 +1,5 @@
-cliente = {
+usuario = {
+    "public_methods": ["POST"],
     "bairro": {
         "type": "string"
     },
@@ -36,7 +37,7 @@ cliente = {
     "pais": {
         "type": "string"
     },
-    "password": {
+    "senha": {
         "type": "string",
         "required": True,
         "minlength": 6
