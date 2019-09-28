@@ -10,6 +10,7 @@ dnspython = "*"
 
 [dev-packages]
 pylint = "*"
+yapf = "*"
 
 [requires]
 python_version = "3.7"

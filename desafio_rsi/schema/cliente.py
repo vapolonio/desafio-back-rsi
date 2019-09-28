@@ -1,30 +1,51 @@
 cliente = {
-    'nome': {
-        'type': 'string',
-        'minlength': 10,
-        'required': True,
+    "bairro": {
+        "type": "string"
     },
-    'cpf': {
-        'type': 'string',
-        'unique': True,
-        'required': True,
-        'regex': r'^\d{11}$',
+    "cidade": {
+        "type": "string"
     },
-    'cep': {
-        'type': 'string',
-        'regex': r'^\d{8}$',
+    "complemento": {
+        "type": "string"
     },
-    'numEndereco': {
-        'type': 'integer',
-        'min': 0,
-        'max': 99999,
+    "cpf": {
+        "type": "string",
+        "unique": True,
+        "required": True
+        # TODO regex
     },
-    'telefone': {
-        'type': 'string',
-        'regex': r'^\d{10,11}$',
+    "dataNascimento": {
+        "type": "date",
+        "required": True
     },
-    'email': {
-        'type': 'string',
-        'regex': r'^\S+@\S+\.\S+$'
+    "email": {
+        "type": "string"
     },
+    "estado": {
+        "type": "string",
+        "minlength": 2,
+        "maxlength": 2
+    },
+    "nome": {
+        "type": "string",
+        "required": True
+    },
+    "numero": {
+        "type": "integer"
+    },
+    "pais": {
+        "type": "string"
+    },
+    "password": {
+        "type": "string",
+        "required": True,
+        "minlength": 6
+    },
+    "rua": {
+        "type": "string"
+    },
+    "sobrenome": {
+        "type": "string",
+        "required": True
+    }
 }
