@@ -1,7 +1,17 @@
 from desafio_rsi.schema.cliente import cliente
+from desafio_rsi.schema.conta import conta
 from os import environ
 
-DOMAIN = {'clientes': {'item_title': 'cliente', 'schema': cliente}}
+DOMAIN = {
+    'clientes': {
+        'item_title': 'cliente', 
+        'schema': cliente
+    },
+    'conta': {
+        'item_title': 'conta', 
+        'schema': conta
+    }
+}
 
 MONGO_DBNAME = 'bytecycle'
 MONGO_URI = environ.get('MONGODB_URI', 'mongodb://localhost')
