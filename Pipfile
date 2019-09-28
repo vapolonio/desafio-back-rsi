@@ -7,6 +7,7 @@ name = "pypi"
 gunicorn = "*"
 eve = "*"
 dnspython = "*"
+bcrypt = "*"
 
 [dev-packages]
 pylint = "*"

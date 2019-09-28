@@ -1,5 +1,4 @@
 usuario = {
-    "public_methods": ["POST"],
     "bairro": {
         "type": "string"
     },
