@@ -1,5 +1,4 @@
 from eve import Eve
 
-app = Eve()
-
+app = Eve(__name__)
 application = app

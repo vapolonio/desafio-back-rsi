@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 gunicorn = "*"
-flask = "*"
-mongoengine = "*"
+eve = "*"
+dnspython = "*"
 
 [dev-packages]
 pylint = "*"
