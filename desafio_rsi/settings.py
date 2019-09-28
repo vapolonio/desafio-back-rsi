@@ -5,12 +5,12 @@ from os import environ
 
 DOMAIN = {
     'usuario': {
-        'item_title': 'usuario', 
+        'item_title': 'usuario',
         'schema': usuario,
         'public_item_methods': ['POST']
     },
     'conta': {
-        'item_title': 'conta', 
+        'item_title': 'conta',
         'schema': conta
     },
     'extrato': {
@@ -25,8 +25,8 @@ MONGO_DBNAME = 'bytecycle'
 MONGO_URI = environ.get('MONGODB_URI', 'mongodb://localhost')
 
 DATE_FORMAT = '%Y-%m-%d'
-HATEOAS=False
-OPTIMIZE_PAGINATION_FOR_SPEED=True
+HATEOAS = False
+OPTIMIZE_PAGINATION_FOR_SPEED = True
 RESOURCE_METHODS = ['GET', 'POST']
 ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
 X_DOMAINS = '*'
