@@ -7,6 +7,7 @@ conta = {
     },
     'saldo': {
         'type': 'float',
+        'default': 0,
     },
     'cpf': {
         'type': 'string',
